@@ -63,11 +63,9 @@ Durante el EDA, detectamos varios retos a considerar:
 * **Tamaño del Dataset:** Aunque grande para un proyecto académico, puede ser limitado para entrenar modelos de *deep learning* de gran escala.
 * **Limitación Clínica:** El dataset se enfoca únicamente en las resonancias, sin incluir otros datos clínicos vitales (edad, género, etc.).
 
-###**Curso:** Inteligencia Artificial I -2025-2 C1
-###**Grupo:** Matrix 3.0
-###**Integrantes:**
+### **Curso:** Inteligencia Artificial I -2025-2 C1
+### **Grupo:** Matrix 3.0
+### **Integrantes:**
 * Harold Esteban Duran Osma-2225113
 * Yeison Steven Ovalle Manjarres-2225115
 * David Santiago Sáenz Ortiz-2215506
-*
-*
