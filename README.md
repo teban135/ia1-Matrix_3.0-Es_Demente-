@@ -9,8 +9,9 @@
 
 **Nombre:** [Alzheimer Disease Dataset](https://www.kaggle.com/datasets/ashrafulhossenakash/alzheimer-disease-dataset/data)
 
-**Fuente:** [Kaggle](https://www.kaggle.com/datasets/ashrafulhossenakash/alzheimer-disease-dataset/data) 🔗
-[**Enlace Notebook**](https://colab.research.google.com/drive/1N81qKQA5Ofw4HkcyCfOZbRbB5-XMNCf-?usp=drive_link)
+**Fuente:** [Kaggle](https://www.kaggle.com/datasets/ashrafulhossenakash/alzheimer-disease-dataset/data)
+
+🔗[**Enlace Notebook**](https://colab.research.google.com/drive/1N81qKQA5Ofw4HkcyCfOZbRbB5-XMNCf-?usp=drive_link)
 
 **Contenido:** Más de 6,400 imágenes de resonancias magnéticas cerebrales, clasificadas en cuatro etapas de la enfermedad: **NonDemented, VeryMildDemented, MildDemented y ModerateDemented.**
 
@@ -61,3 +62,12 @@ Durante el EDA, detectamos varios retos a considerar:
 * **Ruido en las Imágenes Aumentadas:** Aunque útiles, estas imágenes podrían introducir variaciones irrelevantes.
 * **Tamaño del Dataset:** Aunque grande para un proyecto académico, puede ser limitado para entrenar modelos de *deep learning* de gran escala.
 * **Limitación Clínica:** El dataset se enfoca únicamente en las resonancias, sin incluir otros datos clínicos vitales (edad, género, etc.).
+
+###**Curso:** Inteligencia Artificial I -2025-2 C1
+###**Grupo:** Matrix 3.0
+###**Integrantes:**
+* Harold Esteban Duran Osma-2225113
+* Yeison Steven Ovalle Manjarres-2225115
+* David Santiago Sáenz Ortiz-2215506
+*
+*
