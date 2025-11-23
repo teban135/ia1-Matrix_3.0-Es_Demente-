@@ -108,8 +108,8 @@ train_path = os.path.join(path, "Alzheimer_Dataset_V2/train")
 classes = sorted(os.listdir(train_path))
 print("Clases detectadas:", classes)
 ```
-
-📊![Distribucion de Clases](images/distribucion_class.png)
+### 📊Distribucion de Clases
+![Distribucion de Clases](images/distribucion_class.png)
 
 ---
 
@@ -231,13 +231,17 @@ history = model.fit(
 
 ## 📊 Resultados esperados
 
-- ![**Distribución de clases**](images/distribucion_class.png)
+- **Distribución de clases**
+      ![**Distribución de clases**](images/distribucion_class.png)
 
-- **Ejemplos de imágenes del dataset**  
-  ![Imagenes Predichas Correctas](images/Predicciones-Correctas.png)
-  ![Imagenes Predichas Incorrectas](images/Predicciones-Incorrectas.png)
+- **Ejemplos de imágenes del dataset**
+  - *Imagenes Predichas Correctas* 
+      ![Imagenes Predichas Correctas](images/Predicciones-Correctas.png)
+  - *Imagenes Predichas Incorrectas*
+      ![Imagenes Predichas Incorrectas](images/Predicciones_Incorrectas.png)
 
-- ![**Curvas de entrenamiento**](images/Curvas-ROC.png)
+- **Curvas de entrenamiento**
+      ![**Curvas de entrenamiento**](images/Curvas-ROC.png)
 
 
 --- 
