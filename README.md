@@ -1,5 +1,5 @@
 # ia1-Matrix_3.0-Es_Demente-
-![Imagen de Portada](images/Portada-IA-Alzhaimer.png)
+![Imagen de Portada](images/Portada-IA.png)
 
 
 ### **🧠 Exploración del Dataset de Alzheimer (EDA)**
