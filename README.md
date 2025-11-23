@@ -109,7 +109,7 @@ classes = sorted(os.listdir(train_path))
 print("Clases detectadas:", classes)
 ```
 
-📊 *Aquí puedes insertar una imagen con la distribución de clases (gráfico de barras).*
+📊![Distribucion de Clases](images/distribucion_class.png)
 
 ---
 
@@ -231,14 +231,13 @@ history = model.fit(
 
 ## 📊 Resultados esperados
 
-- **Distribución de clases**  
-  *(inserta aquí imagen del gráfico de barras)*
+- ![**Distribución de clases**](images/distribucion_class.png)
 
 - **Ejemplos de imágenes del dataset**  
-  *(inserta aquí muestras aleatorias de cada clase)*
+  ![Imagenes Predichas Correctas](images/Predicciones-Correctas.png)
+  ![Imagenes Predichas Incorrectas](images/Predicciones-Incorrectas.png)
 
-- **Curvas de entrenamiento**  
-  *(inserta aquí las curvas de loss/accuracy)*
+- ![**Curvas de entrenamiento**](images/Curvas-ROC.png)
 
 
 --- 
