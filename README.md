@@ -11,7 +11,9 @@
 
 **Fuente:** [Kaggle](https://www.kaggle.com/datasets/ashrafulhossenakash/alzheimer-disease-dataset/data)
 
-🔗[**Enlace Notebook**](https://colab.research.google.com/drive/1N81qKQA5Ofw4HkcyCfOZbRbB5-XMNCf-?usp=drive_link)
+🔗[**Primera Entrega**](https://colab.research.google.com/drive/1N81qKQA5Ofw4HkcyCfOZbRbB5-XMNCf-?usp=drive_link)
+🔗[**Segunda Entrega**](https://colab.research.google.com/drive/1zFFQE-LXShM0d3d-oIIK-AkMYMPPP9z8?usp=sharing)
+🔗[**Tercera Entrega**](https://colab.research.google.com/drive/1ZUsee2ZCrENj-HDeFxn0vh2CmeV3LXFz?usp=sharing)
 
 **Contenido:** Alrededor de 34 mil imagenes de resonancias magnéticas cerebrales, clasificadas en cuatro etapas de la enfermedad: **NonDemented, VeryMildDemented, MildDemented y ModerateDemented.** y en diferente estados: tren(entrenamiento), pruebas y val (valoracion).
 
@@ -63,6 +65,187 @@ Durante el EDA, detectamos varios retos a considerar:
 * **Tamaño del Dataset:** Aunque grande para un proyecto académico, puede ser limitado para entrenar modelos de *deep learning* de gran escala.
 * **Limitación Clínica:** El dataset se enfoca únicamente en las resonancias, sin incluir otros datos clínicos vitales (edad, género, etc.).
 
+
+Perfecto Harold 🙌. Aquí tienes el **README.md completo**, con todos los títulos y fragmentos de código ya integrados, listo para que lo copies y pegues en tu repositorio:
+
+---
+
+Perfecto Harold 🙌. Te armo el **README.md** con un estilo más narrativo: primero explico cada fase del flujo y luego incluyo el fragmento de código correspondiente. Así tendrás un documento que no solo muestra el código, sino que también contextualiza lo que se hizo y por qué.  
+
+---
+
+# 🧠 Clasificación de Alzheimer con CNN + Transfer Learning
+
+Este proyecto implementa un modelo de **red neuronal convolucional (CNN)** utilizando **EfficientNetB0** con *transfer learning* para la clasificación de imágenes de resonancias cerebrales en cuatro categorías relacionadas con el Alzheimer:
+
+- **NonDemented**
+- **VeryMildDemented**
+- **MildDemented**
+- **ModerateDemented**
+
+---
+
+## 📌 Paso a paso del proyecto
+
+### 1. Descarga del dataset
+El primer paso fue obtener el dataset desde Kaggle. Este conjunto contiene imágenes de resonancias cerebrales organizadas en carpetas para entrenamiento, validación y prueba.  
+Esto asegura que el modelo se entrene con datos distintos a los que se usarán para evaluar su desempeño.
+
+```python
+import kagglehub
+
+# Descargar dataset desde Kaggle
+path = kagglehub.dataset_download("ashrafulhossenakash/alzheimer-disease-dataset")
+print("Dataset descargado en:", path)
+```
+
+---
+
+### 2. Exploración del dataset
+Antes de entrenar, se verificó la distribución de imágenes por clase y conjunto.  
+Este análisis inicial permite identificar posibles desbalances de clases y entender la estructura del dataset.
+
+```python
+import os
+
+train_path = os.path.join(path, "Alzheimer_Dataset_V2/train")
+classes = sorted(os.listdir(train_path))
+print("Clases detectadas:", classes)
+```
+
+📊 *Aquí puedes insertar una imagen con la distribución de clases (gráfico de barras).*
+
+---
+
+### 3. Configuración de parámetros globales
+Se definieron parámetros clave como el tamaño de las imágenes, número de épocas, tasa de aprendizaje y nombres de las clases.  
+Estos valores controlan el entrenamiento y permiten reproducir los resultados.
+
+```python
+IMG_HEIGHT, IMG_WIDTH, IMG_CHANNELS = 224, 224, 3
+BATCH_SIZE = 32
+EPOCHS = 50
+LEARNING_RATE = 0.0001
+NUM_CLASSES = 4
+CLASS_NAMES = ['MildDemented','ModerateDemented','NonDemented','VeryMildDemented']
+```
+
+---
+
+### 4. Generadores de datos con Data Augmentation
+Para mejorar la robustez del modelo, se aplicaron técnicas de *data augmentation*.  
+Esto introduce variaciones en las imágenes (rotaciones, zoom, flips) y ayuda a evitar el sobreajuste.
+
+```python
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+
+train_datagen = ImageDataGenerator(
+    rescale=1./255,
+    rotation_range=15,
+    width_shift_range=0.1,
+    height_shift_range=0.1,
+    shear_range=0.1,
+    zoom_range=0.1,
+    horizontal_flip=True
+)
+
+val_datagen = ImageDataGenerator(rescale=1./255)
+test_datagen = ImageDataGenerator(rescale=1./255)
+```
+
+---
+
+### 5. Construcción del modelo CNN (Transfer Learning)
+Se utilizó **EfficientNetB0** como base preentrenada en ImageNet.  
+Las capas iniciales se congelaron para preservar el conocimiento previo y se añadieron capas densas personalizadas para la clasificación en 4 categorías.
+
+```python
+from tensorflow.keras.applications import EfficientNetB0
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense, Dropout, BatchNormalization, GlobalAveragePooling2D
+
+base_model = EfficientNetB0(
+    include_top=False,
+    weights="imagenet",
+    input_shape=(IMG_HEIGHT, IMG_WIDTH, IMG_CHANNELS)
+)
+base_model.trainable = False  # Fase 1: congelar capas
+
+model = Sequential([
+    base_model,
+    GlobalAveragePooling2D(),
+    Dense(512, activation='relu'), BatchNormalization(), Dropout(0.5),
+    Dense(256, activation='relu'), BatchNormalization(), Dropout(0.4),
+    Dense(128, activation='relu'), BatchNormalization(), Dropout(0.3),
+    Dense(NUM_CLASSES, activation='softmax')
+])
+```
+
+---
+
+### 6. Compilación del modelo
+Se definió el optimizador **Adam**, la función de pérdida *categorical crossentropy* y la métrica principal *accuracy*.  
+Esto permite entrenar el modelo de manera eficiente y evaluar su desempeño.
+
+```python
+from tensorflow.keras.optimizers import Adam
+
+model.compile(
+    optimizer=Adam(learning_rate=LEARNING_RATE),
+    loss="categorical_crossentropy",
+    metrics=["accuracy"]
+)
+```
+
+---
+
+### 7. Callbacks configurados
+Se añadieron callbacks para mejorar el entrenamiento:  
+- **ModelCheckpoint**: guarda el mejor modelo.  
+- **EarlyStopping**: detiene el entrenamiento si no hay mejoras.  
+- **ReduceLROnPlateau**: ajusta la tasa de aprendizaje automáticamente.
+
+```python
+from tensorflow.keras.callbacks import ModelCheckpoint, EarlyStopping, ReduceLROnPlateau
+
+checkpoint = ModelCheckpoint("best_model.h5", monitor="val_accuracy", save_best_only=True)
+early_stop = EarlyStopping(monitor="val_loss", patience=10, restore_best_weights=True)
+reduce_lr = ReduceLROnPlateau(monitor="val_loss", patience=5, factor=0.5)
+```
+
+---
+
+### 8. Entrenamiento del modelo
+Finalmente, se entrenó el modelo utilizando los generadores de datos y los *class weights* calculados para compensar ligeros desbalances.  
+El historial de entrenamiento se almacenó para luego graficar las curvas de *loss* y *accuracy*.
+
+```python
+history = model.fit(
+    train_generator,
+    validation_data=val_generator,
+    epochs=EPOCHS,
+    callbacks=[checkpoint, early_stop, reduce_lr],
+    class_weight=class_weights_dict
+)
+```
+
+
+
+---
+
+## 📊 Resultados esperados
+
+- **Distribución de clases**  
+  *(inserta aquí imagen del gráfico de barras)*
+
+- **Ejemplos de imágenes del dataset**  
+  *(inserta aquí muestras aleatorias de cada clase)*
+
+- **Curvas de entrenamiento**  
+  *(inserta aquí las curvas de loss/accuracy)*
+
+
+--- 
 ### **Curso:** Inteligencia Artificial I -2025-2 C1
 ### **Grupo:** Matrix 3.0
 ### **Integrantes:**
