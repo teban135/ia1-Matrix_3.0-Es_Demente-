@@ -70,10 +70,6 @@ Perfecto Harold 🙌. Aquí tienes el **README.md completo**, con todos los tít
 
 ---
 
-Perfecto Harold 🙌. Te armo el **README.md** con un estilo más narrativo: primero explico cada fase del flujo y luego incluyo el fragmento de código correspondiente. Así tendrás un documento que no solo muestra el código, sino que también contextualiza lo que se hizo y por qué.  
-
----
-
 # 🧠 Clasificación de Alzheimer con CNN + Transfer Learning
 
 Este proyecto implementa un modelo de **red neuronal convolucional (CNN)** utilizando **EfficientNetB0** con *transfer learning* para la clasificación de imágenes de resonancias cerebrales en cuatro categorías relacionadas con el Alzheimer:
