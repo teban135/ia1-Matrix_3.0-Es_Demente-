@@ -10,16 +10,13 @@
 
 **Nombre:** [Alzheimer Disease Dataset](https://www.kaggle.com/datasets/ashrafulhossenakash/alzheimer-disease-dataset/data)
 
-**Fuente:** [Kaggle](https://www.kaggle.com/datasets/ashrafulhossenakash/alzheimer-disease-dataset/data)
-
 [![Kaggle](https://img.shields.io/badge/Kaggle-Dataset-blue?logo=kaggle)](https://www.kaggle.com/datasets/ashrafulhossenakash/alzheimer-disease-dataset/data)
-
 ![Notebook](https://img.shields.io/badge/Notebook-Clustering%20PCA-orange?logo=jupyter)
 
-[Primera Fase](#pre-analisis-conceptual)
+[Primera Fase](#pre-análisis-conceptual)
 🔗[**Primera Entrega**](https://colab.research.google.com/drive/1N81qKQA5Ofw4HkcyCfOZbRbB5-XMNCf-?usp=drive_link)
 
-[Aprendizaje Supervisado](#clasificación-de-alzheimer-con-cnn-transfer-learning)
+[Aprendizaje Supervisado](#clasificación-de-alzheimer-con--cnn-transfer-learning)
 🔗[**Segunda Entrega**](https://colab.research.google.com/drive/1zFFQE-LXShM0d3d-oIIK-AkMYMPPP9z8?usp=sharing)
 
 [Aprendizaje No Supervisado](#pca-modelos-no-supervisados)
@@ -29,7 +26,7 @@
 
 ---
 
-### **Pre-Análisis Conceptual** 💡
+### **Pre-Análisis Conceptual**💡
 
 #### **El Problema: Detección Temprana del Alzheimer**
 
@@ -83,7 +80,7 @@ Perfecto Harold 🙌. Aquí tienes el **README.md completo**, con todos los tít
 [**🔼Volver al inicio**](#ia1-matrix_30-es-demente-)
 
 
-# 🧠 Clasificación de Alzheimer con CNN + Transfer Learning
+# 🧠Clasificación de Alzheimer con CNN + Transfer Learning
 
 Este proyecto implementa un modelo de **red neuronal convolucional (CNN)** utilizando **EfficientNetB0** con *transfer learning* para la clasificación de imágenes de resonancias cerebrales en cuatro categorías relacionadas con el Alzheimer:
 
