@@ -1,4 +1,4 @@
-# ia1-Matrix_3.0-Es_Demente-
+# ia1-Matrix_3.0-Es-Demente-
 ![Imagen de Portada](images/Portada-IA.png)
 
 
@@ -71,7 +71,7 @@ Perfecto Harold 🙌. Aquí tienes el **README.md completo**, con todos los tít
 
 ---
 
-[**🔼 Volver al inicio**](#ia1-matrix_3.0-es-demente-)
+[**🔼Volver al inicio**](#ia1-matrix_3.0-es-demente-)
 
 # 🧠 Clasificación de Alzheimer con CNN + Transfer Learning
 
