@@ -72,6 +72,12 @@ Trabajamos con imágenes de resonancia magnética cerebral, provenientes de Kagg
 
 Las imágenes son cortes axiales del cerebro en escala de grises, etiquetadas como **NonDemented, VeryMildDemented, MildDemented y ModerateDemented**. La inclusión de imágenes aumentadas es un factor clave, ya que introduce variaciones útiles y evita el sobreajuste. La división en subconjuntos (train, val, test) nos permite realizar un entrenamiento y una evaluación justos, asegurando que el modelo se pruebe con datos que nunca ha visto.
 
+**Distribucion por clases**
+![Distribucion por clases](images/D_Class.png)
+
+**Resonancias de Ejemplo**
+![Resonancias de Ejemplo](images/IMG_Referencia.png)
+
 #### **Desafíos Identificados** ⚠️
 
 Durante el EDA, detectamos varios retos a considerar:
