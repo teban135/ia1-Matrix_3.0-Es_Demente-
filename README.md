@@ -8,19 +8,27 @@
 
 ### **Descripción del Dataset**
 
-**Nombre:** [Alzheimer Disease Dataset](https://www.kaggle.com/datasets/ashrafulhossenakash/alzheimer-disease-dataset/data)
+**Nombre:** [Alzheimer Disease Dataset]
+
+[![Kaggle](https://img.shields.io/badge/Kaggle-Alzheimer%20Disease%20Dataset-blue?logo=kaggle](https://www.kaggle.com/datasets/ashrafulhossenakash/alzheimer-disease-dataset/data)
 
 [![Kaggle](https://img.shields.io/badge/Kaggle-Dataset-blue?logo=kaggle)](https://www.kaggle.com/datasets/ashrafulhossenakash/alzheimer-disease-dataset/data)
 ![Notebook](https://img.shields.io/badge/Notebook-Clustering%20PCA-orange?logo=jupyter)
 
 [Primera Fase](#pre-análisis-conceptual)
+
 🔗[**Primera Entrega**](https://colab.research.google.com/drive/1N81qKQA5Ofw4HkcyCfOZbRbB5-XMNCf-?usp=drive_link)
 
 [Aprendizaje Supervisado](#clasificación-de-alzheimer-con--cnn-transfer-learning)
+
 🔗[**Segunda Entrega**](https://colab.research.google.com/drive/1zFFQE-LXShM0d3d-oIIK-AkMYMPPP9z8?usp=sharing)
 
 [Aprendizaje No Supervisado](#pca-modelos-no-supervisados)
+
 🔗[**Tercera Entrega**](https://colab.research.google.com/drive/1ZUsee2ZCrENj-HDeFxn0vh2CmeV3LXFz?usp=sharing)
+
+[Adicional PCA Modelos Supervisados](#clasificación-de-alzheimer-con-pca-y-modelos-supervisados)
+🔗[**PCA + MODELOS SUPERVISADOS**](https://colab.research.google.com/drive/1hvgj8Dl4pi0Q592MtHYm5Z6BiASbOpVo?usp=sharing)
 
 **Contenido:** Alrededor de 34 mil imagenes de resonancias magnéticas cerebrales, clasificadas en cuatro etapas de la enfermedad: **NonDemented, VeryMildDemented, MildDemented y ModerateDemented.** y en diferente estados: tren(entrenamiento), pruebas y val (valoracion).
 
@@ -496,7 +504,7 @@ labels_agg = agg.fit_predict(X_train_pca_50)
 
 [**🔼 Volver al inicio**](#ia1-matrix_30-es-demente-)
 
-# 🧠 Clasificación de Alzheimer con PCA y Modelos Supervisados
+# 🧠Clasificación de Alzheimer con PCA y Modelos Supervisados
 
 Este proyecto aplica **reducción de dimensionalidad (PCA)** y distintos algoritmos de **clasificación supervisada** sobre imágenes de resonancias cerebrales para identificar estados de demencia.
 
