@@ -8,27 +8,28 @@
 
 ### **Descripción del Dataset**
 
-**Nombre:** [Alzheimer Disease Dataset]
-
-[![Kaggle](https://img.shields.io/badge/Kaggle-Alzheimer%20Disease%20Dataset-blue?logo=kaggle](https://www.kaggle.com/datasets/ashrafulhossenakash/alzheimer-disease-dataset/data)
-
+[![Kaggle](https://img.shields.io/badge/Kaggle%20-%20Alzheimer%20Disease%20Dataset-blue?logo=kaggle&logoColor=white)](https://www.kaggle.com/datasets/ashrafulhossenakash/alzheimer-disease-dataset/data)
 [![Kaggle](https://img.shields.io/badge/Kaggle-Dataset-blue?logo=kaggle)](https://www.kaggle.com/datasets/ashrafulhossenakash/alzheimer-disease-dataset/data)
 ![Notebook](https://img.shields.io/badge/Notebook-Clustering%20PCA-orange?logo=jupyter)
 
-[Primera Fase](#pre-análisis-conceptual)
+## 📑 Índice del Proyecto
 
-🔗[**Primera Entrega**](https://colab.research.google.com/drive/1N81qKQA5Ofw4HkcyCfOZbRbB5-XMNCf-?usp=drive_link)
+1. 🔍 **Primera Fase — Pre-Análisis Conceptual**  
+   &nbsp;&nbsp;&nbsp;&nbsp;📘 [Notebook: Primera Entrega](https://colab.research.google.com/drive/1N81qKQA5Ofw4HkcyCfOZbRbB5-XMNCf-?usp=drive_link)  
+   &nbsp;&nbsp;&nbsp;&nbsp;🔗 [Ir a la sección](#pre-análisis-conceptual)
 
-[Aprendizaje Supervisado](#clasificación-de-alzheimer-con--cnn-transfer-learning)
+2. 🧠 **Aprendizaje Supervisado — Clasificación de Alzheimer (CNN + Transfer Learning)**  
+   &nbsp;&nbsp;&nbsp;&nbsp;📘 [Notebook: Segunda Entrega](https://colab.research.google.com/drive/1zFFQE-LXShM0d3d-oIIK-AkMYMPPP9z8?usp=sharing)  
+   &nbsp;&nbsp;&nbsp;&nbsp;🔗 [Ir a la sección](#clasificación-de-alzheimer-con-cnn--transfer-learning)
 
-🔗[**Segunda Entrega**](https://colab.research.google.com/drive/1zFFQE-LXShM0d3d-oIIK-AkMYMPPP9z8?usp=sharing)
+3. 🧩 **Aprendizaje No Supervisado — PCA y Modelos No Supervisados**  
+   &nbsp;&nbsp;&nbsp;&nbsp;📘 [Notebook: Tercera Entrega](https://colab.research.google.com/drive/1ZUsee2ZCrENj-HDeFxn0vh2CmeV3LXFz?usp=sharing)  
+   &nbsp;&nbsp;&nbsp;&nbsp;🔗 [Ir a la sección](#pca-modelos-no-supervisados)
 
-[Aprendizaje No Supervisado](#pca-modelos-no-supervisados)
+4. 📊 **Adicional — PCA + Modelos Supervisados**  
+   &nbsp;&nbsp;&nbsp;&nbsp;📘 [Notebook](https://colab.research.google.com/drive/1hvgj8Dl4pi0Q592MtHYm5Z6BiASbOpVo?usp=sharing)  
+   &nbsp;&nbsp;&nbsp;&nbsp;🔗 [Ir a la sección](#clasificación-de-alzheimer-con-pca-y-modelos-supervisados)
 
-🔗[**Tercera Entrega**](https://colab.research.google.com/drive/1ZUsee2ZCrENj-HDeFxn0vh2CmeV3LXFz?usp=sharing)
-
-[Adicional PCA Modelos Supervisados](#clasificación-de-alzheimer-con-pca-y-modelos-supervisados)
-🔗[**PCA + MODELOS SUPERVISADOS**](https://colab.research.google.com/drive/1hvgj8Dl4pi0Q592MtHYm5Z6BiASbOpVo?usp=sharing)
 
 **Contenido:** Alrededor de 34 mil imagenes de resonancias magnéticas cerebrales, clasificadas en cuatro etapas de la enfermedad: **NonDemented, VeryMildDemented, MildDemented y ModerateDemented.** y en diferente estados: tren(entrenamiento), pruebas y val (valoracion).
 
