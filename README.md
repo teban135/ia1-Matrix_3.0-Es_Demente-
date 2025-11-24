@@ -10,7 +10,7 @@
 
 [![Kaggle](https://img.shields.io/badge/Kaggle%20-%20Alzheimer%20Disease%20Dataset-blue?logo=kaggle&logoColor=white)](https://www.kaggle.com/datasets/ashrafulhossenakash/alzheimer-disease-dataset/data)
 [![Kaggle](https://img.shields.io/badge/Kaggle-Dataset-blue?logo=kaggle)](https://www.kaggle.com/datasets/ashrafulhossenakash/alzheimer-disease-dataset/data)
-![Notebook](https://img.shields.io/badge/Notebook-Clustering%20PCA-orange?logo=jupyter)
+[![Notebook](https://img.shields.io/badge/Notebook-Clustering%20PCA-orange?logo=jupyter)](https://colab.research.google.com/drive/1t11i96hySYd7J6g0pfIePtLrVUIcg2CT?usp=drive_link)
 
 ## 📑 Índice del Proyecto
 
@@ -19,7 +19,7 @@
    &nbsp;&nbsp;&nbsp;&nbsp;🔗 [Ir a la sección](#pre-análisis-conceptual)
 
 2. 🧠 **Aprendizaje Supervisado — Clasificación de Alzheimer (CNN + Transfer Learning)**  
-   &nbsp;&nbsp;&nbsp;&nbsp;📘 [Notebook: Segunda Entrega](https://colab.research.google.com/drive/1zFFQE-LXShM0d3d-oIIK-AkMYMPPP9z8?usp=sharing)  
+   &nbsp;&nbsp;&nbsp;&nbsp;📘 [Notebook: Segunda Entrega](https://colab.research.google.com/drive/1t11i96hySYd7J6g0pfIePtLrVUIcg2CT?usp=drive_link)  
    &nbsp;&nbsp;&nbsp;&nbsp;🔗 [Ir a la sección](#clasificación-de-alzheimer-con-cnn--transfer-learning)
 
 3. 🧩 **Aprendizaje No Supervisado — PCA y Modelos No Supervisados**  
