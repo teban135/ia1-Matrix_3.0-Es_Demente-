@@ -71,6 +71,8 @@ Perfecto Harold 🙌. Aquí tienes el **README.md completo**, con todos los tít
 
 ---
 
+[**🔼 Volver al inicio**](# ia1-Matrix_3.0-Es_Demente-)
+
 # 🧠 Clasificación de Alzheimer con CNN + Transfer Learning
 
 Este proyecto implementa un modelo de **red neuronal convolucional (CNN)** utilizando **EfficientNetB0** con *transfer learning* para la clasificación de imágenes de resonancias cerebrales en cuatro categorías relacionadas con el Alzheimer:
@@ -243,9 +245,115 @@ history = model.fit(
 
 - **Curvas de entrenamiento**
       ![**Curvas de entrenamiento**](images/Curvas-ROC.png)
+---
+
+[**🔼 Volver al inicio**](# ia1-matrix_3.0-es_demente-)
+
+# 🧠 Clasificación de Alzheimer con PCA y Modelos Supervisados
+
+Este proyecto aplica **reducción de dimensionalidad (PCA)** y distintos algoritmos de **clasificación supervisada** sobre imágenes de resonancias cerebrales para identificar estados de demencia.
+
+---
+
+## ⚙️ Flujo de trabajo
+
+### 1. **Carga y preparación de datos**
+- Se descargó el dataset de Alzheimer desde Kaggle.
+- Se cargaron imágenes en escala de grises, redimensionadas a 64x64.
+- Se dividieron en conjuntos de entrenamiento y prueba.
+
+```python
+# Carga optimizada de imágenes
+X_train, y_train = load_images(TRAIN_PATH, CLASSES)
+X_test, y_test   = load_images(TEST_PATH, CLASSES)
+print(f"Train: {X_train.shape}, Test: {X_test.shape}")
+```
+
+---
+
+### 2. **Aplanado y reducción de dimensionalidad con PCA**
+- Se aplanaron las imágenes (64x64 → 4096 features).
+- Se estandarizaron los datos.
+- Se aplicó PCA con 50 componentes, reteniendo ~80% de la varianza.
+
+```python
+from sklearn.preprocessing import StandardScaler
+from sklearn.decomposition import PCA
+
+X_train_flat = X_train.reshape(X_train.shape[0], -1)
+X_test_flat  = X_test.reshape(X_test.shape[0], -1)
+
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train_flat)
+X_test_scaled  = scaler.transform(X_test_flat)
+
+pca = PCA(n_components=50, random_state=42)
+X_train_pca = pca.fit_transform(X_train_scaled)
+X_test_pca  = pca.transform(X_test_scaled)
+
+print(f"Varianza explicada: {sum(pca.explained_variance_ratio_)*100:.2f}%")
+```
+
+---
+
+### 3. **Entrenamiento de modelos supervisados**
+Se entrenaron tres modelos clásicos y una red neuronal:
+- **Random Forest** → mejor desempeño (Accuracy ≈ 0.66, F1 ≈ 0.67).
+- **Decision Tree** → desempeño más bajo.
+- **SVM (RBF)** → resultados intermedios.
+- **Red Neuronal (MLP compacto)** → Accuracy ≈ 0.58.
+
+```python
+# Random Forest
+from sklearn.ensemble import RandomForestClassifier
+rf = RandomForestClassifier(n_estimators=100, max_depth=15, random_state=42, n_jobs=-1)
+rf.fit(X_train_pca, y_train)
+y_pred_rf = rf.predict(X_test_pca)
+```
+
+```python
+# Red Neuronal
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense, Dropout, BatchNormalization
+
+model = Sequential([
+    Dense(128, activation='relu', input_shape=(50,)),
+    BatchNormalization(),
+    Dropout(0.3),
+    Dense(64, activation='relu'),
+    Dropout(0.2),
+    Dense(32, activation='relu'),
+    Dense(4, activation='softmax')
+])
+model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
+```
+
+---
+
+### 4. **Evaluación y comparación**
+- Se calcularon métricas: Accuracy, F1, Precision, Recall.
+- Se generaron **tablas comparativas**, **gráficas de métricas**, **matrices de confusión** y **curvas de pérdida** para la red neuronal.
+- El **Random Forest** fue el modelo más robusto en este flujo.
+
+```python
+import pandas as pd
+df_results = pd.DataFrame(results)
+print(df_results.sort_values("F1-Score", ascending=False))
+```
+
+**Resultado Evaluacion metricas**
+ ![**Resultado Evaluacion metricas**](images/PCA_Metricas.png)
 
 
---- 
+**Matriz de Confusion**
+ ![**Matriz de Confusion**](images/PCA_Matriz.png)
+
+
+
+Esto deja claro que **Random Forest con PCA** fue la mejor opción en este caso, aunque se exploraron alternativas como SVM y redes neuronales.
+
+---
+
 ### **Curso:** Inteligencia Artificial I -2025-2 C1
 ### **Grupo:** Matrix 3.0
 ### **Integrantes:**
