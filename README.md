@@ -31,7 +31,7 @@
    &nbsp;&nbsp;&nbsp;&nbsp;🔗 [Ir a la sección](#clasificación-de-alzheimer-con-pca-y-modelos-supervisados)
 
 
-**Contenido:** Alrededor de 34 mil imagenes de resonancias magnéticas cerebrales, clasificadas en cuatro etapas de la enfermedad: **NonDemented, VeryMildDemented, MildDemented y ModerateDemented.** y en diferente estados: tren(entrenamiento), pruebas y val (valoracion).
+**Contenido:** Alrededor de 34 mil imagenes de resonancias magnéticas cerebrales, clasificadas en cuatro etapas de la enfermedad: **NonDemented, VeryMildDemented, MildDemented y ModerateDemented.** y en diferente estados: train(entrenamiento), pruebas y val (valoracion).
 
 ---
 
@@ -81,8 +81,6 @@ Durante el EDA, detectamos varios retos a considerar:
 * **Tamaño del Dataset:** Aunque grande para un proyecto académico, puede ser limitado para entrenar modelos de *deep learning* de gran escala.
 * **Limitación Clínica:** El dataset se enfoca únicamente en las resonancias, sin incluir otros datos clínicos vitales (edad, género, etc.).
 
-
-Perfecto Harold 🙌. Aquí tienes el **README.md completo**, con todos los títulos y fragmentos de código ya integrados, listo para que lo copies y pegues en tu repositorio:
 
 ---
 
@@ -286,7 +284,7 @@ X_scaled = scaler.fit_transform(X_flat)
 
 ### 2. **Reducción de Dimensionalidad con PCA**
 - PCA se usa para comprimir la información en menos dimensiones manteniendo la mayor varianza posible.  
-- Se seleccionaron 50 componentes principales, que explican ≈95% de la varianza.  
+- Se seleccionaron 50 componentes principales, que explican ≈80% de la varianza.  
 
 ```python
 pca = PCA(n_components=50)
