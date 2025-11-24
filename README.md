@@ -367,12 +367,124 @@ def evaluar(labels_pred, labels_true):
   ![METRICAS EXTERNAS](images/PCA_ME.png)
     
 - En este contexto, **DBSCAN es el más alineado con las etiquetas médicas**, aunque sacrifica cohesión interna.
+
+
 ---
 
 [**🔼 Volver al inicio**](#ia1-matrix_30-es-demente-)
 
 
+## 🧩 Reduccion de Dimensionalidad
 
+### 2. **Reducción de Dimensionalidad con PCA**
+- Se aplicó **PCA** sobre las imágenes aplanadas y normalizadas.  
+- Se probaron diferentes configuraciones: 2D, 3D y 50 componentes principales.  
+- Se analizó la varianza explicada para cada caso.
+
+```python
+from sklearn.decomposition import PCA
+
+# PCA en 2D
+pca_2d = PCA(n_components=2, random_state=42)
+X_train_pca_2d = pca_2d.fit_transform(X_train_scaled)
+X_test_pca_2d = pca_2d.transform(X_test_scaled)
+
+# PCA en 3D
+pca_3d = PCA(n_components=3, random_state=42)
+X_train_pca_3d = pca_3d.fit_transform(X_train_scaled)
+X_test_pca_3d = pca_3d.transform(X_test_scaled)
+
+# PCA con 50 componentes
+pca_50 = PCA(n_components=50, random_state=42)
+X_train_pca_50 = pca_50.fit_transform(X_train_scaled)
+X_test_pca_50 = pca_50.transform(X_test_scaled)
+
+print("Varianza explicada 2D:", sum(pca_2d.explained_variance_ratio_))
+print("Varianza explicada 3D:", sum(pca_3d.explained_variance_ratio_))
+print("Varianza explicada 50D:", sum(pca_50.explained_variance_ratio_))
+```
+
+👉 **Explicación**:  
+- PCA 2D y 3D permiten visualizar la distribución de las clases.  
+- PCA con 50 componentes conserva ≈80% de la varianza, lo que reduce dimensionalidad sin perder demasiada información.  
+
+---
+
+### 3. **Visualización con PCA**
+Se graficaron los datos reducidos para observar la separación de clases.
+
+```python
+import matplotlib.pyplot as plt
+
+plt.scatter(X_train_pca_2d[:,0], X_train_pca_2d[:,1], c=y_train, cmap='viridis', alpha=0.6)
+plt.title("Visualización PCA 2D")
+plt.xlabel("PC1")
+plt.ylabel("PC2")
+plt.show()
+```
+**Visualizacion PCA 2D**
+[visualizacion2DPCA](images/RPCA_2D.png)
+
+**Visualizacion PCA 3D**
+[visualizacion3DPCA](images/RPCA_3D.png)
+
+👉 **Explicación**:  
+Las clases muestran cierta separación, aunque con solapamientos. PCA captura patrones globales pero no garantiza separación perfecta.
+
+---
+
+### 4. **Visualización con T-SNE**
+Se aplicó **T-SNE** para explorar relaciones no lineales y visualizar agrupamientos más definidos.
+
+```python
+from sklearn.manifold import TSNE
+
+tsne = TSNE(n_components=2, random_state=42, perplexity=30, n_iter=1000)
+X_train_tsne = tsne.fit_transform(X_train_scaled)
+
+plt.figure(figsize=(10,6))
+plt.scatter(X_train_tsne[:,0], X_train_tsne[:,1], c=y_train, cmap='viridis', alpha=0.6, s=20)
+plt.title("Visualización T-SNE")
+plt.xlabel("TSNE-1")
+plt.ylabel("TSNE-2")
+plt.show()
+```
+
+👉 **Explicación**:  
+- T-SNE preserva **distancias locales**, mostrando agrupamientos más claros que PCA.  
+- Es sensible a parámetros como `perplexity` y `n_iter`.  
+- Se usa principalmente para **visualización exploratoria**, no para clustering directo.
+
+**Visualizacion T-NSE 2D**
+[visualizacion2DTNSE](images/RTNSE_2D.png)
+
+**Visualizacion T-NSE 3D**
+[visualizacion2DTNSE](images/RTNSE_3D.png)
+
+---
+
+### 5. **Clustering sobre PCA y T-SNE**
+Se aplicaron algoritmos de clustering sobre las representaciones reducidas:
+
+```python
+from sklearn.cluster import KMeans, DBSCAN, AgglomerativeClustering
+
+# K-Means sobre PCA 50D
+kmeans = KMeans(n_clusters=4, random_state=42)
+labels_kmeans = kmeans.fit_predict(X_train_pca_50)
+
+# DBSCAN sobre PCA 50D
+dbscan = DBSCAN(eps=5, min_samples=5)
+labels_dbscan = dbscan.fit_predict(X_train_pca_50)
+
+# Agglomerative sobre PCA 50D
+agg = AgglomerativeClustering(n_clusters=4, linkage='ward')
+labels_agg = agg.fit_predict(X_train_pca_50)
+```
+
+👉 **Explicación**:  
+- PCA + clustering → más eficiente y con clusters compactos.  
+- T-SNE → útil para visualizar cómo los clusters se distribuyen, aunque no se usa como entrada directa para clustering por su naturaleza estocástica.  
 
 ---
 
