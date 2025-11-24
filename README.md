@@ -250,6 +250,134 @@ history = model.fit(
 
 [**🔼 Volver al inicio**](#ia1-matrix_30-es-demente-)
 
+# PCA Modelos No Supervisados 
+
+## 🧩 Explicación Paso a Paso
+
+### 1. **Carga y Preprocesamiento**
+- Se descargan las imágenes del dataset de Alzheimer.  
+- Se convierten a escala de grises y se redimensionan a 64x64 píxeles para reducir dimensionalidad.  
+- Luego se aplanan en vectores de 4096 características y se normalizan con `StandardScaler`.  
+
+```python
+X_flat = X_images.reshape(X_images.shape[0], -1)
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X_flat)
+```
+
+👉 **Explicación**: este paso asegura que todas las características tengan la misma escala, lo cual es crítico para PCA y clustering.
+
+---
+
+### 2. **Reducción de Dimensionalidad con PCA**
+- PCA se usa para comprimir la información en menos dimensiones manteniendo la mayor varianza posible.  
+- Se seleccionaron 50 componentes principales, que explican ≈95% de la varianza.  
+
+```python
+pca = PCA(n_components=50)
+X_pca = pca.fit_transform(X_scaled)
+```
+
+👉 **Explicación**: PCA facilita la visualización y mejora la eficiencia de los algoritmos de clustering al eliminar redundancia.
+
+---
+
+### 3. **Clustering con Diferentes Algoritmos**
+
+#### 🔹 K-Means
+- Busca particionar los datos en *k* clusters esféricos.  
+- Se selecciona *k* óptimo con el método del codo y Silhouette.  
+
+```python
+kmeans = KMeans(n_clusters=4, random_state=42)
+labels_kmeans = kmeans.fit_predict(X_pca)
+```
+
+👉 **Explicación**: K-Means es rápido y genera clusters compactos, pero asume formas esféricas y tamaños similares.
+
+---
+
+#### 🔹 DBSCAN
+- Agrupa puntos densos y marca outliers como ruido.  
+- Se ajusta el parámetro `eps` con el gráfico de k-distancia.  
+
+```python
+dbscan = DBSCAN(eps=5, min_samples=5)
+labels_dbscan = dbscan.fit_predict(X_pca)
+```
+
+👉 **Explicación**: DBSCAN detecta clusters de formas arbitrarias y maneja bien ruido, lo que lo hace más realista en datos médicos.
+
+---
+
+#### 🔹 Agglomerative Clustering
+- Construye una jerarquía de clusters usando el criterio de enlace Ward.  
+- Se corta el dendrograma para obtener el número óptimo de clusters.  
+
+```python
+agg = AgglomerativeClustering(n_clusters=4, linkage='ward')
+labels_agg = agg.fit_predict(X_pca)
+```
+
+👉 **Explicación**: este método captura estructuras jerárquicas y anidadas, útil para analizar relaciones entre subgrupos.
+
+---
+
+### 4. **Evaluación con Etiquetas Reales**
+- Se comparan los clusters con las clases clínicas usando métricas externas: Accuracy, Precision, Recall, F1.  
+
+```python
+def evaluar(labels_pred, labels_true):
+    return {
+        "Accuracy": accuracy_score(labels_true, labels_pred),
+        "Precision": precision_score(labels_true, labels_pred, average='weighted'),
+        "Recall": recall_score(labels_true, labels_pred, average='weighted'),
+        "F1": f1_score(labels_true, labels_pred, average='weighted')
+    }
+```
+
+👉 **Explicación**: estas métricas permiten medir qué tan bien los clusters reflejan las etiquetas médicas reales.
+
+**K_Means**
+![**K_Means**](images/PCA_NS_K.png)
+
+**DBSCAN Y AGGLOMERATIVE**
+![**DBSCAN**](images/PCA_NS_DA.png)
+
+
+---
+
+## 📊 Resultados
+- **K-Means y Agglomerative**: Silhouette ≈ 0.45–0.47, clusters compactos y geométricamente claros.  
+- **DBSCAN**: mejor alineación con etiquetas clínicas (Accuracy ≈ 0.46, Precision ≈ 0.59, F1 ≈ 0.42), aunque menos cohesión interna.  
+- **Interpretación**: los métodos basados en centroides generan clusters “bonitos”, pero DBSCAN captura mejor la estructura real de las clases médicas.
+
+---
+
+## ✅ Conclusión Final
+- **PCA** fue esencial para reducir dimensionalidad y facilitar clustering.  
+- **K-Means y Agglomerative** → mejor cohesión interna.
+
+  **METRICAS INTERNAS**
+  ![METRICAS INTERNAS](images/PCA_MI.png)
+  
+- **DBSCAN** → más fiel a la distribución clínica real.
+
+  **METRICAS EXTERNAS**
+  ![METRICAS EXTERNAS](images/PCA_ME.png)
+    
+- En este contexto, **DBSCAN es el más alineado con las etiquetas médicas**, aunque sacrifica cohesión interna.
+---
+
+[**🔼 Volver al inicio**](#ia1-matrix_30-es-demente-)
+
+
+
+
+---
+
+[**🔼 Volver al inicio**](#ia1-matrix_30-es-demente-)
+
 # 🧠 Clasificación de Alzheimer con PCA y Modelos Supervisados
 
 Este proyecto aplica **reducción de dimensionalidad (PCA)** y distintos algoritmos de **clasificación supervisada** sobre imágenes de resonancias cerebrales para identificar estados de demencia.
