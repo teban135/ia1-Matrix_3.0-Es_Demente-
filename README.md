@@ -71,7 +71,7 @@ Perfecto Harold 🙌. Aquí tienes el **README.md completo**, con todos los tít
 
 ---
 
-[**🔼 Volver al inicio**](# ia1-Matrix_3.0-Es_Demente-)
+[**🔼 Volver al inicio**](#ia1-matrix_3.0-es-demente-)
 
 # 🧠 Clasificación de Alzheimer con CNN + Transfer Learning
 
@@ -247,7 +247,7 @@ history = model.fit(
       ![**Curvas de entrenamiento**](images/Curvas-ROC.png)
 ---
 
-[**🔼 Volver al inicio**](# ia1-matrix_3.0-es_demente-)
+[**🔼 Volver al inicio**](#ia1-matrix_3.0-es-demente-)
 
 # 🧠 Clasificación de Alzheimer con PCA y Modelos Supervisados
 
