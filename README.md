@@ -423,10 +423,10 @@ plt.ylabel("PC2")
 plt.show()
 ```
 **Visualizacion PCA 2D**
-[visualizacion2DPCA](images/RPCA_2D.png)
+![visualizacion2DPCA](images/RPCA_2D.png)
 
 **Visualizacion PCA 3D**
-[visualizacion3DPCA](images/RPCA_3D.png)
+![visualizacion3DPCA](images/RPCA_3D.png)
 
 👉 **Explicación**:  
 Las clases muestran cierta separación, aunque con solapamientos. PCA captura patrones globales pero no garantiza separación perfecta.
@@ -456,10 +456,10 @@ plt.show()
 - Se usa principalmente para **visualización exploratoria**, no para clustering directo.
 
 **Visualizacion T-NSE 2D**
-[visualizacion2DTNSE](images/RTNSE_2D.png)
+![visualizacion2DTNSE](images/RTNSE_2D.png)
 
 **Visualizacion T-NSE 3D**
-[visualizacion2DTNSE](images/RTNSE_3D.png)
+![visualizacion2DTNSE](images/RTNSE_3D.png)
 
 ---
 
