@@ -10,7 +10,7 @@
 
 [![Kaggle](https://img.shields.io/badge/Kaggle%20-%20Alzheimer%20Disease%20Dataset-blue?logo=kaggle&logoColor=white)](https://www.kaggle.com/datasets/ashrafulhossenakash/alzheimer-disease-dataset/data)
 [![Kaggle](https://img.shields.io/badge/Kaggle-Dataset-blue?logo=kaggle)](https://www.kaggle.com/datasets/ashrafulhossenakash/alzheimer-disease-dataset/data)
-[![Notebook](https://img.shields.io/badge/Notebook-Clustering%20PCA-orange?logo=jupyter)](https://colab.research.google.com/drive/1t11i96hySYd7J6g0pfIePtLrVUIcg2CT?usp=drive_link)
+[![Notebook](https://img.shields.io/badge/Notebook-Clustering%20PCA-orange?logo=jupyter)](https://drive.google.com/drive/folders/1S3Z6ylZIzYp-q8UdAKwALf9NoSGyRB02?usp=drive_link)
 
 ## 📑 Índice del Proyecto
 
