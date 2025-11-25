@@ -10,7 +10,7 @@
 
 [![Kaggle](https://img.shields.io/badge/Kaggle%20-%20Alzheimer%20Disease%20Dataset-blue?logo=kaggle&logoColor=white)](https://www.kaggle.com/datasets/ashrafulhossenakash/alzheimer-disease-dataset/data)
 [![Kaggle](https://img.shields.io/badge/Kaggle-Dataset-blue?logo=kaggle)](https://www.kaggle.com/datasets/ashrafulhossenakash/alzheimer-disease-dataset/data)
-[![Notebook](https://img.shields.io/badge/-Notebook-orange?logo=jupyter&logoColor=white&labelColor=black)](https://drive.google.com/drive/folders/1S3Z6ylZIzYp-q8UdAKwALf9NoSGyRB02?usp=drive_link)
+[![Notebook](https://img.shields.io/badge/-Notebook-blue?logo=jupyter&logoColor=white&labelColor=black)](https://drive.google.com/drive/folders/1S3Z6ylZIzYp-q8UdAKwALf9NoSGyRB02?usp=drive_link)
 [![Video Explicativo](https://img.shields.io/badge/Video%20Explicativo-red?logo=youtube&logoColor=white)](https://www.youtube.com/watch?v=sONk6AcXTFw&feature=youtu.be)
 
 
