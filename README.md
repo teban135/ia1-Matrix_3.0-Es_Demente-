@@ -477,10 +477,10 @@ plt.show()
 - Es sensible a parámetros como `perplexity` y `n_iter`.  
 - Se usa principalmente para **visualización exploratoria**, no para clustering directo.
 
-**Visualizacion T-NSE 2D**
+**Visualizacion T-SNE 2D**
 ![visualizacion2DTNSE](images/RTNSE_2D.png)
 
-**Visualizacion T-NSE 3D**
+**Visualizacion T-SNE 3D**
 ![visualizacion2DTNSE](images/RTNSE_3D.png)
 
 ---
